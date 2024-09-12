@@ -6,7 +6,7 @@ CREATE TABLE imagens  (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   titulo varchar(255),
   caminho varchar(255),
-  fk int(11),
+  fk int(11)
 );
 
 -- ----------------------------
@@ -39,7 +39,7 @@ CREATE TABLE settings  (
 -- ----------------------------
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios  (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   login varchar(50),
   senha varchar(50),
   nivel int(11) NOT NULL);
@@ -47,4 +47,3 @@ CREATE TABLE usuarios  (
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO usuarios VALUES (1, 'admin', 'lZSimac=', 0);
-

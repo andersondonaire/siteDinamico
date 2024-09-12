@@ -56,12 +56,12 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: './logar.php',
+                    url: './admin/logar.php',
                     data: $(this).serialize(),
                     dataType: 'json',
                     success: function(response) {
                         if (response.success) {
-                            window.location.href = 'home.php';
+                            window.location.href = './admin/home.php';
                         } else {
                             $('#errorMessage').text(response.message).show();
                         }

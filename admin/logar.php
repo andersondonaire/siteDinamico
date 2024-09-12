@@ -14,16 +14,14 @@ include_once "./helpers.php";
 
 $login = $_POST['login'] ?? '';
 $senha = $_POST['senha'] ?? '';
-var_dump(Helpers::encripta($senha));
-exit();
+$senha = Helpers::encripta($senha);
+
 
 $sql = new connect();
 
 $query = "SELECT login, senha from usuarios WHERE login = '{$login}' ";
 
 $loginDb = $sql->select($query);
-
-
 
 if (isset($loginDb) && $loginDb != false) {
     $senhaDb = $loginDb['senha'];
