@@ -1,22 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : #LOCALHOST
- Source Server Type    : MySQL
- Source Server Version : 50736 (5.7.36)
- Source Host           : localhost:3306
- Source Schema         : site
-
- Target Server Type    : MySQL
- Target Server Version : 50736 (5.7.36)
- File Encoding         : 65001
-
- Date: 12/09/2024 10:12:12
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
 -- ----------------------------
 -- Table structure for imagens
 -- ----------------------------
@@ -28,10 +9,6 @@ CREATE TABLE `imagens`  (
   `fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of imagens
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for paginas
@@ -51,10 +28,6 @@ CREATE TABLE `paginas`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of paginas
--- ----------------------------
-
--- ----------------------------
 -- Table structure for settings
 -- ----------------------------
 DROP TABLE IF EXISTS `settings`;
@@ -65,10 +38,6 @@ CREATE TABLE `settings`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `setting_key`(`setting_key`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of settings
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -87,4 +56,3 @@ CREATE TABLE `usuarios`  (
 -- ----------------------------
 INSERT INTO `usuarios` VALUES (1, 'admin', 'lZSimac=', 0);
 
-SET FOREIGN_KEY_CHECKS = 1;
