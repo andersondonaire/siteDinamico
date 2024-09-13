@@ -1,12 +1,14 @@
 <?php
 
 if($_POST['salvar']){
-    
+
     $nomPerfil = $_POST['nome_perfil'];
     $twitter = $_POST['link_twitter'];
     $face = $_POST['link_face'];
     $insta = $_POST['link_insta'];
     $linkedin = $_POST['link_linkedin'];
+
+    
 }
 
 
