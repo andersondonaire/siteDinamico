@@ -1,6 +1,6 @@
 <?php
 
-if($_POST['salvar']){
+if(isset($_POST['salvar'])){
 
     $nomPerfil = $_POST['nome_perfil'];
     $twitter = $_POST['link_twitter'];
@@ -8,7 +8,12 @@ if($_POST['salvar']){
     $insta = $_POST['link_insta'];
     $linkedin = $_POST['link_linkedin'];
 
-    
+    Helpers::setSettings("nome_perfil",$nomPerfil);
+    Helpers::setSettings("link_twitter",$twitter);
+    Helpers::setSettings("link_face",$face);
+    Helpers::setSettings("link_insta",$insta);
+    Helpers::setSettings("link_linkedin",$linkedin);
+
 }
 
 

@@ -295,16 +295,14 @@ class Helpers
     $consulta = $sql->select("SELECT * FROM settings WHERE setting_key =  '{$setting_key}'");
 
     return $consulta['setting_value'];
-  } 
-  
-  public static function setSettings($setting_key,$setting_value)
+  }
+
+  public static function setSettings($setting_key, $setting_value)
   {
     $sql = new connect();
 
-    $dados = ["setting_value"=>$setting_value];
-    $consulta = $sql->update("settings",$dados,"setting_key = '{$setting_key}' ");
-    
-    return $consulta['setting_value'];
+    $dados = ["setting_value" => $setting_value];
+    $consulta = $sql->update("settings", $dados, "setting_key = '{$setting_key}' ");
+    return $consulta;
   }
-
 }
