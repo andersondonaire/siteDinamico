@@ -132,7 +132,8 @@ class connect
       $erro = $con->errorInfo();
       return array("msg" => $erro['2'], "codErro" => $erro['1']);
     }
-    return "Alterado com Sucesso!";
+    return array("msg" => "Registro alterado com sucesso!", "codErro" => 0);
+    
     $cnx = null;
   }
 }
