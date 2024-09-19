@@ -1,49 +1,33 @@
--- ----------------------------
--- Table structure for imagens
--- ----------------------------
-DROP TABLE IF EXISTS imagens;
-CREATE TABLE imagens  (
-  id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  titulo varchar(255),
-  caminho varchar(255),
-  fk int(11)
+
+DROP TABLE IF EXISTS `settings`;
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `setting_key` varchar(100) DEFAULT NULL,
+  `setting_value` text,
+  PRIMARY KEY (`id`)
 );
 
--- ----------------------------
--- Table structure for paginas
--- ----------------------------
-DROP TABLE IF EXISTS paginas;
-CREATE TABLE paginas  (
-  id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  titulo varchar(255),
-  slug varchar(255),
-  conteudo text,
-  meta_description varchar(255),
-  meta_keywords varchar(255),
-  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+INSERT INTO `settings`
+VALUES (1, 'nome_perfil', 'Alexandro Smith'),
+(
+    2,
+    'link_twitter',
+    'https://twitter.com/andersondonaire--'
+  ),
+(3, 'link_face', 'https://www.facebook.com/---'),
+(4, 'link_insta', 'https://www.instagram.com/---'),
+(5, 'link_linkedin', 'https://br.linkedin.com/---');
+
+DROP TABLE IF EXISTS `usuarios`;
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) DEFAULT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 );
 
--- ----------------------------
--- Table structure for settings
--- ----------------------------
-DROP TABLE IF EXISTS settings;
-CREATE TABLE settings  (
-  id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  setting_key varchar(100),
-  setting_value text
-);
-
--- ----------------------------
--- Table structure for usuarios
--- ----------------------------
-DROP TABLE IF EXISTS usuarios;
-CREATE TABLE usuarios  (
-  id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  login varchar(50),
-  senha varchar(50),
-  nivel int(11) NOT NULL);
--- ----------------------------
--- Records of usuarios
--- ----------------------------
-INSERT INTO usuarios VALUES (1, 'admin', 'lZSimac=', 0);
+INSERT INTO `usuarios`
+VALUES (1, 'admin', 'lZSimac=', 0);
