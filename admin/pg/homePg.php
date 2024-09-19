@@ -16,11 +16,15 @@ if (isset($_POST['salvar'])) {
         Helpers::setSettings("link_linkedin", $linkedin)
     ];
 
-    echo "<pre>";
+
     foreach ($arrAtualiza as $r) {
-        var_dump($r);
+        if($r['codErro'] != 0){
+            Helpers::alertaErro($r['msg']);
+        }
     }
-    echo "</pre>";
+
+    Helpers::alertaSucesso("Alterado com sucesso!");
+  
 }
 
 
