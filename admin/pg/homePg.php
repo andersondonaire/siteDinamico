@@ -27,9 +27,14 @@ if (isset($_POST['salvar'])) {
   
 }
 
+if(isset($_POST['imagens_Home'])){
+    
+}
+
 
 ?>
 <h1>Home</h1>
+
 <form method="post" class="form-group">
     <label class="label" for="nome_perfil">Nome Perfil</label>
     <input class="form-control" type="text" name="nome_perfil" id="nome_perfil" value="<?= Helpers::getSettings("nome_perfil"); ?>">
@@ -51,3 +56,19 @@ if (isset($_POST['salvar'])) {
     <input class="form-control" type="submit" name="salvar" value="Salvar">
 
 </form>
+
+<hr>
+
+<form method="post" class="form-group" enctype="multipart/form-data">
+    <label>Imagem do perfil</label>
+    <input type="file" name="img_perfil" class="form-control">
+
+    <label>Imagem de fundo</label>
+    <input type="file" name="img_fundo" class="form-control">
+
+    <input type="submit" class="form-control" name="imagens_Home" value="Salvar">
+</form>
+
+<br>
+<br>
+<br>
