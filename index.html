@@ -77,7 +77,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Alex Smith</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+      <p>Sou <span class="typed" data-typed-items="Teste"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -719,30 +719,51 @@
 
     $(function () {
       //carrega funções
-      carregaHome('api.php?acao=getSettings', (data)=>{
+      carregaHome('api.php?acao=getSettings', (data) => {
+
         const twitterLink = data.find(item => item.setting_key === "link_twitter").setting_value;
 
-                const faceLink = data.find(item => item.setting_key === "link_face").setting_value;
+        const faceLink = data.find(item => item.setting_key === "link_face").setting_value;
 
-                const instaLink = data.find(item => item.setting_key === "link_insta").setting_value;
+        const instaLink = data.find(item => item.setting_key === "link_insta").setting_value;
 
-                const linkedinLink = data.find(item => item.setting_key === "link_linkedin").setting_value;
+        const linkedinLink = data.find(item => item.setting_key === "link_linkedin").setting_value;
 
-                const nomePerfil = data.find(item => item.setting_key === "nome_perfil").setting_value;
-                const imgPerfil = data.find(item => item.setting_key === "img_perfil").setting_value;
-                const imgFundo = data.find(item => item.setting_key === "img_fundo").setting_value;
+        const nomePerfil = data.find(item => item.setting_key === "nome_perfil").setting_value;
+        const imgPerfil = data.find(item => item.setting_key === "img_perfil").setting_value;
+        const imgFundo = data.find(item => item.setting_key === "img_fundo").setting_value;
+        const texto_perfil = data.find(item => item.setting_key === "texto_perfil").setting_value;
 
-                    console.log(imgFundo)
 
-                $('.social-links .twitter').attr('href', twitterLink);
-                $('.social-links .facebook').attr('href', faceLink);
-                $('.social-links .instagram').attr('href', instaLink);
-                $('.social-links .linkedin').attr('href', linkedinLink);
-                
-                $('.profile .text-light a').html(nomePerfil);
-                $('.profile img').attr("src", `./assets/img/dinamicas/${imgPerfil}`);
-                $('#hero .hero-container h1').html(nomePerfil);
-                $('#hero').css('background',`url("./assets/img/dinamicas/${imgFundo}") top center`);
+
+        $('.social-links .twitter').attr('href', twitterLink);
+        $('.social-links .facebook').attr('href', faceLink);
+        $('.social-links .instagram').attr('href', instaLink);
+        $('.social-links .linkedin').attr('href', linkedinLink);
+
+        $('.profile .text-light a').html(nomePerfil);
+        $('.profile img').attr("src", `./assets/img/dinamicas/${imgPerfil}`);
+        $('#hero .hero-container h1').html(nomePerfil);
+        $('#hero').css('background', `url("./assets/img/dinamicas/${imgFundo}") top center`);
+
+
+        $('#hero .hero-container .typed').attr("data-typed-items", texto_perfil);
+
+        // Hero typed
+        if ($('.typed').length) {
+          var typed_strings = $(".typed").data('typed-items');
+          typed_strings = typed_strings.split(',')
+          new Typed('.typed', {
+            strings: typed_strings,
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 2000
+          });
+        }
+
+
+        
       });
     })
 

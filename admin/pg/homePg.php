@@ -6,13 +6,15 @@ if (isset($_POST['salvar'])) {
     $face = $_POST['link_face'];
     $insta = $_POST['link_insta'];
     $linkedin = $_POST['link_linkedin'];
+    $texto_perfil = $_POST['texto_perfil'];
 
     $arrAtualiza = [
         Helpers::setSettings("nome_perfil", $nomPerfil),
         Helpers::setSettings("link_twitter", $twitter),
         Helpers::setSettings("link_face", $face),
         Helpers::setSettings("link_insta", $insta),
-        Helpers::setSettings("link_linkedin", $linkedin)
+        Helpers::setSettings("link_linkedin", $linkedin),
+        Helpers::setSettings("texto_perfil", $texto_perfil)
     ];
 
     foreach ($arrAtualiza as $r) {
@@ -114,6 +116,9 @@ if (isset($_POST['imagens_Home'])) {
 
     <label class="label" for="link_linkedin">Link LinkedIn</label>
     <input class="form-control" type="text" name="link_linkedin" id="link_linkedin" value="<?= Helpers::getSettings("link_linkedin") ?>">
+   
+    <label class="label" for="link_linkedin">Texto Perfil</label>
+    <input class="form-control" type="text" name="texto_perfil" id="texto_perfil" value="<?= Helpers::getSettings("texto_perfil") ?>">
 
     <br>
     <input class="form-control" type="submit" name="salvar" value="Salvar">
