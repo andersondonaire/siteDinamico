@@ -31,6 +31,15 @@ if (isset($_POST['imagens_Home'])) {
 
     // Processamento da imagem do perfil
     if (!empty($_FILES['img_perfil']['name'])) {
+
+        //buscar nome da imagem no banco de dados
+        $img_antiga = Helpers::getSettings("img_perfil");
+
+
+        if (file_exists($caminho . $img_antiga)) {
+            unlink($caminho . $img_antiga);
+        }
+
         $imgPerfil = new \Verot\Upload\Upload($_FILES['img_perfil']);
         if ($imgPerfil->uploaded) {
             $imgPerfil->file_new_name_body = 'img_perfil';
@@ -39,14 +48,14 @@ if (isset($_POST['imagens_Home'])) {
             $imgPerfil->image_x = 200;
             $imgPerfil->image_ratio_y = true;
             $imgPerfil->process($caminho);
+
             if ($imgPerfil->processed) {
                 $imgPerfil->clean();
                 $rImgPerfil = $sql->update("settings", ['setting_value' => $imgPerfil->file_dst_name], "id=6");
-                if ($rImgPerfil['codErro'] == 0) {
-                    Helpers::alertaSucesso("A imagem do perfil foi alterada com sucesso!");
-                } else {
+                if ($rImgPerfil['codErro'] != 0) {
                     Helpers::alertaErro("Erro ao salvar a imagem do perfil no banco de dados.");
                 }
+
             } else {
                 Helpers::alertaErro('Erro ao processar a imagem do perfil: ' . $imgPerfil->error);
             }
@@ -55,7 +64,16 @@ if (isset($_POST['imagens_Home'])) {
 
     // Processamento da imagem de fundo
     if (!empty($_FILES['img_fundo']['name'])) {
+
+        //buscar nome da imagem no banco de dados
+        $img_antiga = Helpers::getSettings("img_fundo");
+
+        if (file_exists($caminho . $img_antiga)) {
+            unlink($caminho . $img_antiga);
+        }
+
         $imgFundo = new \Verot\Upload\Upload($_FILES['img_fundo']);
+
         if ($imgFundo->uploaded) {
             $imgFundo->file_new_name_body = 'img_fundo';
             $imgFundo->image_resize = true;
@@ -66,9 +84,7 @@ if (isset($_POST['imagens_Home'])) {
             if ($imgFundo->processed) {
                 $imgFundo->clean();
                 $rImgFundo = $sql->update("settings", ['setting_value' => $imgFundo->file_dst_name], "id=7");
-                if ($rImgFundo['codErro'] == 0) {
-                    Helpers::alertaSucesso("A imagem de fundo foi alterada com sucesso!");
-                } else {
+                if ($rImgFundo['codErro'] != 0) {
                     Helpers::alertaErro("Erro ao salvar a imagem de fundo no banco de dados.");
                 }
             } else {
@@ -76,6 +92,8 @@ if (isset($_POST['imagens_Home'])) {
             }
         }
     }
+
+    Helpers::alertaSucesso("Imagens alteradas com sucesso!");
 }
 ?>
 
