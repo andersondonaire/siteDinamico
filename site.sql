@@ -27,7 +27,7 @@ CREATE TABLE `settings` (
   `setting_key` varchar(100) DEFAULT NULL,
   `setting_value` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `settings` (
 --
 
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'nome_perfil','Anderson'),(2,'link_twitter','https://www.coca-cola.com/br/pt'),(3,'link_face','https://www.facebook.com/-'),(4,'link_insta','https://www.instagram.com/-'),(5,'link_linkedin','https://br.linkedin.com/-'),(6,'img_perfil','img_perfil_7.webp'),(7,'img_fundo',NULL);
+INSERT INTO `settings` VALUES (1,'nome_perfil','Anderson'),(2,'link_twitter','https://www.coca-cola.com/br/pt'),(3,'link_face','https://www.facebook.com/-'),(4,'link_insta','https://www.instagram.com/-'),(5,'link_linkedin','https://br.linkedin.com/-'),(6,'img_perfil','img_perfil.webp'),(7,'img_fundo','img_fundo.webp'),(8,'texto_perfil','Professor, Desenvolvedor, Designer');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 --
@@ -75,4 +75,4 @@ INSERT INTO `usuarios` VALUES (1,'admin','lZSimac=',0);
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-26  9:32:41
+-- Dump completed on 2024-10-03 13:21:37
