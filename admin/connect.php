@@ -8,7 +8,6 @@ define('USER', 'root');
 
 define('PASS', '');
 
-
 class connect
 {
 
