@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -718,35 +718,29 @@
   <script>
 
     $(function () {
+
+
       //carrega funções
+      // Página Home
       carregaHome('api.php?acao=getSettings', (data) => {
 
         const twitterLink = data.find(item => item.setting_key === "link_twitter").setting_value;
-
         const faceLink = data.find(item => item.setting_key === "link_face").setting_value;
-
         const instaLink = data.find(item => item.setting_key === "link_insta").setting_value;
-
         const linkedinLink = data.find(item => item.setting_key === "link_linkedin").setting_value;
-
         const nomePerfil = data.find(item => item.setting_key === "nome_perfil").setting_value;
         const imgPerfil = data.find(item => item.setting_key === "img_perfil").setting_value;
         const imgFundo = data.find(item => item.setting_key === "img_fundo").setting_value;
         const texto_perfil = data.find(item => item.setting_key === "texto_perfil").setting_value;
 
-
-
         $('.social-links .twitter').attr('href', twitterLink);
         $('.social-links .facebook').attr('href', faceLink);
         $('.social-links .instagram').attr('href', instaLink);
         $('.social-links .linkedin').attr('href', linkedinLink);
-
         $('.profile .text-light a').html(nomePerfil);
         $('.profile img').attr("src", `./assets/img/dinamicas/${imgPerfil}`);
         $('#hero .hero-container h1').html(nomePerfil);
         $('#hero').css('background', `url("./assets/img/dinamicas/${imgFundo}") top center`);
-
-
         $('#hero .hero-container .typed').attr("data-typed-items", texto_perfil);
 
         // Hero typed
@@ -761,10 +755,9 @@
             backDelay: 2000
           });
         }
+      }); //fim página home
 
-
-        
-      });
+      
     })
 
   </script>
