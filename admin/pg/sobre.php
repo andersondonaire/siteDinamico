@@ -23,5 +23,5 @@
 
 
 <textarea>
-  Welcome to TinyMCE!
+ <?=Helpers::getSettings("html_sobre")?>
 </textarea>
