@@ -558,6 +558,7 @@
         const imgPerfil = data.find(item => item.setting_key === "img_perfil").setting_value;
         const imgFundo = data.find(item => item.setting_key === "img_fundo").setting_value;
         const texto_perfil = data.find(item => item.setting_key === "texto_perfil").setting_value;
+        const texto_sobre = data.find(item => item.setting_key === "html_sobre").setting_value;
 
         $('.social-links .twitter').attr('href', twitterLink);
         $('.social-links .facebook').attr('href', faceLink);
@@ -568,6 +569,7 @@
         $('#hero .hero-container h1').html(nomePerfil);
         $('#hero').css('background', `url("./assets/img/dinamicas/${imgFundo}") top center`);
         $('#hero .hero-container .typed').attr("data-typed-items", texto_perfil);
+        $('#sobre').html(texto_sobre);
 
         // Hero typed
         if ($('.typed').length) {
@@ -583,7 +585,7 @@
         }
       }); //fim página home
 
-      
+
     })
 
   </script>

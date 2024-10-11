@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_POST['salvar'])) {
+
+    $r = Helpers::setSettings("html_sobre", $_POST['html_sobre']);
+
+    if ($r['codErro'] != 0) {
+        Helpers::alertaErro("Erro: {$r['msg']}");
+    }
+
+    Helpers::alertaSucesso("Página sobre salva com sucesso!");
+}
+?>
+
 <h1>Sobre</h1>
 
 <!-- Place the first <script> tag in your HTML's <head> -->
@@ -18,10 +32,11 @@
         relative_urls: false, // Usa URLs absolutas para garantir o caminho correto
         remove_script_host: false,
     });
-
 </script>
 
-
-<textarea>
- <?=Helpers::getSettings("html_sobre")?>
+<form method="post">
+    <textarea name="html_sobre">
+ <?= Helpers::getSettings("html_sobre") ?>
 </textarea>
+    <input class="btn btn-success" type="submit" name="salvar" value="Salvar">
+</form>
