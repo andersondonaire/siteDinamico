@@ -1,10 +1,17 @@
 <?php
 
-var_dump($sql);
 
+if (isset($_POST['cadastrarCategoria'])) {
 
-if(isset($_POST['cadastrarCategoria'])){
-    $
+    $dados = ["nome" => $_POST['nomeCateg']];
+
+    $r = $sql->insert("categorias", $dados);
+
+    if ($r['codErro'] != 0) {
+        Helpers::alertaErro($r['msg']);
+    }
+
+    Helpers::alertaSucesso("Categoria cadastrada com sucesso!");
 }
 
 ?>

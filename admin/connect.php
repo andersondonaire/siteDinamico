@@ -101,9 +101,9 @@ class connect
     $con = $cnx->prepare($SQL);
     if (!$con->execute()) {
       $erro = $con->errorInfo();
-      return array('msg' => $erro['2'], "codErro" => $erro['1']);
+      return ['msg' => $erro['2'], "codErro" => $erro['1']];
     }
-    return "Inserido com Sucesso!";
+    return ['msg' => 'Cadastrado com sucesso!', "codErro" => 0];
     $cnx = null;
   }
 
