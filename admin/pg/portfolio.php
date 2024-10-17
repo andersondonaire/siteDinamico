@@ -1,10 +1,20 @@
 <?php
 
+var_dump($sql);
+
+
+if(isset($_POST['cadastrarCategoria'])){
+    $
+}
+
 ?>
 
 <h1>Portifólio</h1>
 
-<!-- Place the first <script> tag in your HTML's <head>
-<script src="https://cdn.tiny.cloud/1/91yvdlvgrvd7ilvubca1v13xfxpwf0dcuf2xmg2gih7pc4nv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> -->
+<h2>Categorias</h2>
 
-Logo mais...
+<form class="form-group" method="post">
+    <label for="nomeCateg">Nome da Categoria</label>
+    <input class="form-control" type="text" name="nomeCateg" id="nomeCateg" required>
+    <input type="submit" name="cadastrarCategoria" value="Cadastrar Categoria">
+</form>
