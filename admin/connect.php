@@ -20,9 +20,8 @@ class connect
       return $con->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
       echo "Ops! desculpe, algo deu errado, por favor tente mais tarde:<br>";
-      if ($_SESSION['debug'] == true) {
-        echo $e->getMessage();
-      }
+      echo "<br>";
+      echo $e->getMessage();
       exit;
     }
     $cnx = null;
@@ -37,9 +36,8 @@ class connect
       return $con->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
       echo "Ops! desculpe,  algo deu errado, por favor tente mais tarde:<br>";
-      if ($_SESSION['debug'] == true) {
-        echo $e->getMessage();
-      }
+      echo "<br>";
+      echo $e->getMessage();
       exit;
     }
     $cnx = null;
@@ -132,7 +130,7 @@ class connect
       return array("msg" => $erro['2'], "codErro" => $erro['1']);
     }
     return array("msg" => "Registro alterado com sucesso!", "codErro" => 0);
-    
+
     $cnx = null;
   }
 }

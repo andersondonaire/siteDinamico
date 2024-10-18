@@ -29,22 +29,29 @@ if (isset($_POST['cadastrarCategoria'])) {
 <hr>
 
 <table class="table table-stripped">
-    <th>
+
+    <tr>
     <td>Nome da Categoria</td>
     <td>Editar</td>
     <td>Excluir</td>
-    </th>
+    </tr>
+
     <?php
     $categ = $sql->selectFor("SELECT * FROM categorias ORDER BY nome");
 
+    
     foreach ($categ as $v) {
-        echo `
-            <tr>
+        
+    echo "<tr>
                 <td>{$v['nome']}</td>
-                <td><a href="home.php?pg=portfolio&acao=editar&id={$v['id']}">Editar</a></td>
-                <td><a href="home.php?pg=portfolio&acao=excluir&id={$v['id']}">Excluir</a></td>
+                <td>
+                <a href=\"home.php?pg=portfolio&acao=editar&id={$v['id']}\">Editar</a>
+                </td>
+                <td>
+                <a href=\"home.php?pg=portfolio&acao=excluir&id={$v['id']}\">Excluir</a>
+                </td>
             </tr>
-            `;
+        ";
     }
     ?>
 
