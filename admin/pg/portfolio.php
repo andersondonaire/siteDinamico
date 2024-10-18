@@ -25,3 +25,27 @@ if (isset($_POST['cadastrarCategoria'])) {
     <input class="form-control" type="text" name="nomeCateg" id="nomeCateg" required>
     <input type="submit" name="cadastrarCategoria" value="Cadastrar Categoria">
 </form>
+
+<hr>
+
+<table class="table table-stripped">
+    <th>
+    <td>Nome da Categoria</td>
+    <td>Editar</td>
+    <td>Excluir</td>
+    </th>
+    <?php
+    $categ = $sql->selectFor("SELECT * FROM categorias ORDER BY nome");
+
+    foreach ($categ as $v) {
+        echo `
+            <tr>
+                <td>{$v['nome']}</td>
+                <td><a href="home.php?pg=portfolio&acao=editar&id={$v['id']}">Editar</a></td>
+                <td><a href="home.php?pg=portfolio&acao=excluir&id={$v['id']}">Excluir</a></td>
+            </tr>
+            `;
+    }
+    ?>
+
+</table>
