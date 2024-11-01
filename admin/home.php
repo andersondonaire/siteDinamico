@@ -38,9 +38,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?pg=experiencia">Experiência</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?pg=portfolio">Portifólio</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Portifólio
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="?pg=portfolio_categorias">Categorias</a></li>
+                                <li><a class="dropdown-item" href="?pg=portfolio_produtos">Produtos</a></li>
+                            </ul>
+                        </li>    
                         <li class="nav-item">
                             <a class="nav-link" href="?pg=servicos">Serviços</a>
                         </li>
