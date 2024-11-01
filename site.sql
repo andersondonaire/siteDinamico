@@ -26,7 +26,7 @@ CREATE TABLE `categorias` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34,7 +34,7 @@ CREATE TABLE `categorias` (
 --
 
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'APP'),(2,'WEBSITE'),(3,'Sistema Web');
+INSERT INTO `categorias` VALUES (2,'WEBSITE'),(3,'Sistema Web'),(5,'APP');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
 --
@@ -175,4 +175,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-18 11:35:41
+-- Dump completed on 2024-11-01 11:33:45
