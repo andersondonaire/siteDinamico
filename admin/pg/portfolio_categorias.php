@@ -1,6 +1,6 @@
 <?php
 
-
+//cadastra categoria
 if (isset($_POST['cadastrarCategoria'])) {
 
     $dados = ["nome" => $_POST['nomeCateg']];
@@ -14,6 +14,7 @@ if (isset($_POST['cadastrarCategoria'])) {
     Helpers::alertaSucesso("Categoria cadastrada com sucesso!");
 }
 
+//edita categoria
 if (isset($_POST['editaCategoria'])) {
 
     $id = $_POST['id'];
@@ -27,12 +28,16 @@ if (isset($_POST['editaCategoria'])) {
     Helpers::alertaSucesso("Categoria alterada com sucesso!");
 }
 
+//confirma excluir categoria
 if(isset($_GET['acao']) && $_GET['acao'] == 'excluir'){
 
     $id = $_GET['id'];
-    Helpers::alertaConfirma("Deseja realmente excluir essa categoria?","?pg=portfolio&acao=excluir2&id={$id}","?pg=portfolio");
+    Helpers::alertaConfirma("Deseja realmente excluir essa categoria?","?pg=portfolio_categorias&acao=excluir2&id={$id}","?pg=portfolio");
 
-}if(isset($_GET['acao']) && $_GET['acao'] == 'excluir2'){
+}
+
+//exclui categoria
+if(isset($_GET['acao']) && $_GET['acao'] == 'excluir2'){
 
     $id = $_GET['id'];
     
@@ -48,6 +53,8 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'excluir'){
 <h2>Categorias</h2>
 
 <?php
+
+//se o botao editar for clicado, recebe a ação, alimenta e mostra o form editar
 if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
     $id = $_GET['id'];
     $cat = $sql->select("SELECT* FROM categorias WHERE id = {$id}");
@@ -62,6 +69,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
     </form>
 
 <?php
+// se não houver a ação editar, mostra o form cadastar
 } else {
 ?>
 
@@ -86,6 +94,8 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
     </tr>
 
     <?php
+    
+    //busca no banco um array de categorias cadastradas
     $categ = $sql->selectFor("SELECT * FROM categorias ORDER BY nome");
 
 
@@ -94,10 +104,10 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
         echo "<tr>
                 <td>{$v['nome']}</td>
                 <td>
-                <a href=\"home.php?pg=portfolio&acao=editar&id={$v['id']}\">Editar</a>
+                <a href=\"home.php?pg=portfolio_categorias&acao=editar&id={$v['id']}\">Editar</a>
                 </td>
                 <td>
-                <a href=\"home.php?pg=portfolio&acao=excluir&id={$v['id']}\">Excluir</a>
+                <a href=\"home.php?pg=portfolio_categorias&acao=excluir&id={$v['id']}\">Excluir</a>
                 </td>
             </tr>
         ";

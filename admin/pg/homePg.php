@@ -27,7 +27,8 @@ if (isset($_POST['salvar'])) {
 }
 
 if (isset($_POST['imagens_Home'])) {
-    include "../assets/vendor/class_upload/src/class.upload.php";
+    
+    include "./assetsAdmin/class_upload/src/class.upload.php";
 
     $caminho = '../assets/img/dinamicas/';
 
@@ -46,7 +47,7 @@ if (isset($_POST['imagens_Home'])) {
         if ($imgPerfil->uploaded) {
             $imgPerfil->file_new_name_body = 'img_perfil';
             $imgPerfil->image_resize = true;
-            $imgPerfil->image_convert = 'webp';
+            $imgPerfil->image_convert = 'jpg';
             $imgPerfil->image_x = 200;
             $imgPerfil->image_ratio_y = true;
             $imgPerfil->process($caminho);
