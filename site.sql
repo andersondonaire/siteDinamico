@@ -26,7 +26,7 @@ CREATE TABLE `categorias` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34,7 +34,7 @@ CREATE TABLE `categorias` (
 --
 
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (2,'WEBSITE'),(3,'Sistema Web'),(5,'APP');
+INSERT INTO `categorias` VALUES (2,'WEBSITE'),(3,'Sistema Web'),(6,'APP'),(7,'APP'),(8,'APP2');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
 --
@@ -46,10 +46,12 @@ DROP TABLE IF EXISTS `imagens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `imagens` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `caminho` varchar(200) DEFAULT NULL,
+  `img_p` varchar(200) DEFAULT NULL,
+  `img_g` varchar(255) DEFAULT NULL,
   `fk_produto` int(10) unsigned DEFAULT NULL,
+  `ordem` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,6 +59,7 @@ CREATE TABLE `imagens` (
 --
 
 /*!40000 ALTER TABLE `imagens` DISABLE KEYS */;
+INSERT INTO `imagens` VALUES (1,'por-do-sol_7761359255655493660.jpg','por-do-sol_7761359255655493660_1.jpg',1,0),(2,'Penguins.jpg','Penguins_1.jpg',1,1),(3,'1295081111_tulipas.jpg','1295081111_tulipas_1.jpg',1,2),(4,'147464.jpg','147464_1.jpg',1,3),(5,'1224789407696_f.jpg','1224789407696_f_1.jpg',1,4),(6,'1273113772480_f.jpg','1273113772480_f_1.jpg',1,5),(7,'por-do-sol_7761359255655493660_2.jpg','por-do-sol_7761359255655493660_3.jpg',1,6),(8,'Lighthouse.jpg','Lighthouse_1.jpg',1,7),(9,'CTulips.jpg','CTulips_1.jpg',1,8),(10,'Koala.jpg','Koala_1.jpg',1,9),(11,'Penguins_2.jpg','Penguins_3.jpg',1,10),(12,'Chrysanthemum.jpg','Chrysanthemum_1.jpg',1,11),(13,'Hydrangeas.jpg','Hydrangeas_1.jpg',2,0),(14,'Lighthouse_2.jpg','Lighthouse_3.jpg',2,1),(15,'Jellyfish.jpg','Jellyfish_1.jpg',2,2),(16,'Tulips.jpg','Tulips_1.jpg',2,3),(17,'Chrysanthemum_2.jpg','Chrysanthemum_3.jpg',2,4),(18,'Koala_2.jpg','Koala_3.jpg',2,5),(19,'Lighthouse_4.jpg','Lighthouse_5.jpg',2,6),(20,'Tulips_2.jpg','Tulips_3.jpg',2,7),(21,'Koala_4.jpg','Koala_5.jpg',2,8),(22,'Penguins_4.jpg','Penguins_5.jpg',2,9);
 /*!40000 ALTER TABLE `imagens` ENABLE KEYS */;
 
 --
@@ -73,8 +76,9 @@ CREATE TABLE `produtos` (
   `data_criacao` date DEFAULT NULL,
   `projeto_url` varchar(50) DEFAULT NULL,
   `descricao` text,
+  `fk_categoria` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +86,7 @@ CREATE TABLE `produtos` (
 --
 
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+INSERT INTO `produtos` VALUES (1,'Web Site','Alunos 2 ano','2024-10-31',NULL,'Teste de cadastro',2),(2,'Web Site2','Alunos 2 ano','2024-10-31',NULL,'Teste de cadastro',2),(3,'Aplicativo de Finanças','FinCorp','2023-01-15','https://www.fincorpapp.com','Desenvolvimento de aplicativo de finanças para gerenciar contas e investimentos. A aplicação possui gráficos interativos e integração com bancos.',NULL),(4,'E-commerce de Roupas','ModaOnline','2023-03-22','https://www.modaonline.com.br','Criação de plataforma de e-commerce para venda de roupas com painel de administração para controle de estoque, pagamentos e envio.',NULL),(5,'Sistema de Gestão de Projetos','TechSolutions','2023-05-10','https://www.techsolutions.com','Desenvolvimento de sistema de gestão de projetos com controle de tarefas, prazos e integração com ferramentas de comunicação.',NULL),(6,'Site Institucional','EducaPro','2023-06-01','https://www.educapro.com.br','Criação de site institucional para empresa de educação, com design responsivo e integração com plataformas de ensino online.',NULL),(7,'Aplicativo de Delivery','FastFood Express','2023-07-14','https://www.fastfoodexpress.com.br','Desenvolvimento de aplicativo mobile para delivery de alimentos, com rastreamento em tempo real e integração com sistemas de pagamento.',NULL),(8,'Blog de Tecnologia','TechGuru','2023-08-09','https://www.techguru.com','Desenvolvimento de blog em WordPress com design moderno e sistema de comentários para engajamento da comunidade.',NULL),(9,'Sistema de Reservas de Hotel','HotelPioneiro','2023-09-01','https://www.hotelpioneiro.com.br','Criação de sistema de reservas online para hotéis, com integração de calendário e controle de disponibilidade de quartos.',NULL),(10,'Portfólio Online','João da Silva','2023-10-03','https://www.joaosilva.com.br','Criação de portfólio online para freelancer de design gráfico, com animações interativas e seção de contato.',NULL),(11,'Aplicativo de Meditação','ZenApp','2024-01-12','https://www.zenapp.com.br','Desenvolvimento de aplicativo de meditação com acompanhamento de progresso, meditações guiadas e música relaxante.',NULL),(12,'Sistema de Cadastro de Alunos','Escola Digital','2024-02-19','https://www.escoladigital.com.br','Criação de sistema de cadastro e acompanhamento de alunos para escolas de ensino fundamental, com integração de notas e frequências.',NULL);
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 
 --
@@ -175,4 +180,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-01 11:33:45
+-- Dump completed on 2024-11-28 13:20:43
