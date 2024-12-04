@@ -85,12 +85,6 @@ $id = $_REQUEST['id'];
             var src = './multi_imagens/seleciona.php?id=' + <?= $id ?>;
 
 
-            // $('#modal').load(src);
-
-            // $('#modal').modal('show');
-
-
-
             var caminho = '<iframe width="100%" height="400" frameborder="0" src="' + src + '"></iframe>';
             $(caminho).appendTo(".modal-body");
             $('#modal').modal('show');
@@ -108,9 +102,9 @@ $id = $_REQUEST['id'];
                 opacity: 0.8,
                 cursor: 'move',
                 update: function() {
-                    var order = $(this).sortable("serialize") + '&organiza=imagens';
-                    $.post("classes/ordenar.php", order, function(theResponse) {
-                        location.reload();
+                    var order = $(this).sortable("serialize");
+                    $.post("./multi_imagens/ordenar.php", order, function(res) {
+                       
                     });
                 }
             });

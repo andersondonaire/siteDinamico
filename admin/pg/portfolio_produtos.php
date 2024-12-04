@@ -186,6 +186,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
                                 ORDER BY data_criacao DESC");
 
     foreach ($prod as $p) {
+        $contaImagens = $sql->select("SELECT count(*) as conta from imagens where fk_produto = {$p['id']}");
     ?>
 
         <tr>
@@ -193,7 +194,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'editar') {
             <td><?= $p['cliente'] ?></td>
             <td><?= $p['data_criacao'] ?></td>
             <td><?= $p['categoria'] ?></td>
-            <td><a class="btn btn-warning" href="./home.php?pg=portfolio_imagens&id=<?= $p['id'] ?>">Imagens</a></td>
+            <td><a class="btn btn-warning" href="./home.php?pg=portfolio_imagens&id=<?= $p['id'] ?>">Imagens (<?=$contaImagens['conta']?>)</a></td>
             <td><a class="btn btn-info" href="./home.php?pg=portfolio_produtos&acao=editar&id=<?= $p['id'] ?>">Editar</a></td>
             <td><a class="btn btn-danger" href="./home.php?portifolio_produtos&acao=excluir&id=<?= $p['id'] ?>">Excluir</a></td>
         </tr>
